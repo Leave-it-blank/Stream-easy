@@ -20,7 +20,7 @@ export const Logo = ()=>{
                 />
             </div>
             <div className={cn("flex flex-col items-center", fonts.className,)}>
-                <p className="text-black font-semibold text-xl">
+                <p className=" font-semibold text-xl">
                     Stream Easily!
                 </p>
                 <p>
