@@ -24,36 +24,36 @@ export const getRecommended = async () => {
           },
           {
             NOT: {
-              followedBy: {
-                some: {
-                  followerId: userId,
-                },
-              },
+              // followedBy: {
+              //   some: {
+              //     followerId: userId,
+              //   },
+              // },
             },
           },
           {
             NOT: {
-              blocking: {
-                some: {
-                  blockedId: userId,
-                },
-              },
+              // blocking: {
+              //   some: {
+              //     blockedId: userId,
+              //   },
+              // },
             },
           },
         ],
       },
-      include: {
-        stream: {
-          select: {
-            isLive: true,
-          },
-        },
-      },
+      // include: {
+      //   stream: {
+      //     select: {
+      //       isLive: true,
+      //     },
+      //   },
+      // },
       orderBy: [
         {
-          stream: {
-            isLive: "desc",
-          }
+          // stream: {
+          //   isLive: "desc",
+          // }
         },
         {
           createdAt: "desc"
@@ -62,18 +62,18 @@ export const getRecommended = async () => {
     })
   } else {
     users = await db.user.findMany({
-      include: {
-        stream: {
-          select: {
-            isLive: true,
-          },
-        },
-      },
+      // include: {
+      //   stream: {
+      //     select: {
+      //       isLive: true,
+      //     },
+      //   },
+      // },
       orderBy: [
         {
-          stream: {
-            isLive: "desc",
-          }
+          // stream: {
+          //   isLive: "desc",
+          // }
         },
         {
           createdAt: "desc"
