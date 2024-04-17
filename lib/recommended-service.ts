@@ -53,14 +53,15 @@ export const getRecommended = async () => {
         {
           stream: {
             isLive: "desc",
-          }
+          },
         },
         {
-          createdAt: "desc"
+          createdAt: "desc",
         },
-      ]
-    })
-  } else {
+      ],
+    });
+  } 
+  else {
     users = await db.user.findMany({
       include: {
         stream: {
@@ -73,12 +74,12 @@ export const getRecommended = async () => {
         {
           stream: {
             isLive: "desc",
-          }
+          },
         },
         {
-          createdAt: "desc"
+          createdAt: "desc",
         },
-      ]
+      ],
     });
   }
 

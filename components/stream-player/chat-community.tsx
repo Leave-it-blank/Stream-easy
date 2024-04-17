@@ -1,7 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import { useDebounce } from "usehooks-ts";
+import  {  useDebounce}  from "use-debounce";
 import { useParticipants } from "@livekit/components-react";
 import { LocalParticipant, RemoteParticipant } from "livekit-client";
 

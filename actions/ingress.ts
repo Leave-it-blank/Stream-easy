@@ -14,12 +14,13 @@ import { TrackSource } from "livekit-server-sdk";
 import { db } from "@/lib/db";
 import { getSelf } from "@/lib/auth-service";
 import { revalidatePath } from "next/cache";
-//import { AudioPresets } from "livekit-client";
+
+
 
 const roomService = new RoomServiceClient(
   process.env.LIVEKIT_API_URL!,
   process.env.LIVEKIT_API_KEY!,
-  process.env.LIVEKIT_API_SECRET!,
+  process.env.LIVEKIT_API_SECRET!
 );
 
 const ingressClient = new IngressClient(process.env.LIVEKIT_API_URL!);
@@ -52,6 +53,7 @@ export const createIngress = async (ingressType: IngressInput) => {
     roomName: self.id,
     participantName: self.username,
     participantIdentity: self.id,
+
   };
 
   if (ingressType === IngressInput.WHIP_INPUT) {
@@ -63,14 +65,12 @@ export const createIngress = async (ingressType: IngressInput) => {
     };
     options.audio = {
       source: TrackSource.MICROPHONE,
-      preset: IngressAudioEncodingPreset.OPUS_STEREO_96KBPS
-    };
-  };
+      preset: IngressAudioEncodingPreset.OPUS_STEREO_96KBPS,
 
-  const ingress = await ingressClient.createIngress(
-    ingressType,
-    options,
-  );
+    };
+  }
+
+  const ingress = await ingressClient.createIngress(ingressType, options);
 
   if (!ingress || !ingress.url || !ingress.streamKey) {
     throw new Error("Failed to create ingress");
