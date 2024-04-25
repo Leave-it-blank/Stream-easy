@@ -53,6 +53,7 @@ export const createIngress = async (ingressType: IngressInput) => {
     roomName: self.id,
     participantName: self.username,
     participantIdentity: self.id,
+    
 
   };
 
