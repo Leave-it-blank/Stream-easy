@@ -15,7 +15,9 @@ export const useViewerToken = (hostIdentity: string) => {
         const viewerToken = await createViewerToken(hostIdentity);
         setToken(viewerToken);
 
-        const decodedToken = jwtDecode(viewerToken) as JwtPayload & { name?: string }
+        const decodedToken = jwtDecode(viewerToken) as JwtPayload & {
+          name?: string;
+        };
         const name = decodedToken?.name;
         const identity = decodedToken.jti;
 
@@ -26,11 +28,10 @@ export const useViewerToken = (hostIdentity: string) => {
         if (name) {
           setName(name);
         }
-
       } catch {
         toast.error("Something went wrong");
       }
-    }
+    };
 
     createToken();
   }, [hostIdentity]);

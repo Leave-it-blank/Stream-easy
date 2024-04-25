@@ -15,7 +15,7 @@ export const Logo = () => {
       <div className="flex items-center gap-x-4 hover:opacity-75 transition">
         <div className="bg-white rounded-full p-1 mr-12 shrink-0 lg:mr-0 lg:shrink">
           <Image
-            src="/public/SE-BlackBG.png"
+            src="BlackBG.png"
             alt="Stream Easy"
             height="32"
             width="32"
@@ -26,7 +26,7 @@ export const Logo = () => {
           font.className
         )}>
           <p className="text-lg font-semibold">
-            Gamehub
+            Stream Easy
           </p>
           <p className="text-xs text-muted-foreground">
             Creator dashboard
